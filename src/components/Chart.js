@@ -7,7 +7,7 @@ function Chart() {
 		fetch("http://localhost:3000/productos/lista")
 			.then((rsp) => {
 				rsp.json().then((rsp) => {
-					setProductos(rsp.data);
+					setProductos(rsp.listado);
 				});
 			})
 			.catch((error) => {
@@ -31,13 +31,7 @@ function Chart() {
 								<th>Precio</th>
 							</tr>
 						</thead>
-						<tfoot>
-							<tr>
-								<th>Nombre</th>
-								<th>Descripcion</th>
-								<th>Precio</th>
-							</tr>
-						</tfoot>
+
 						<tbody>
 							{Productos?.map((row, i) => {
 								return <ChartRow {...row} key={i} />;

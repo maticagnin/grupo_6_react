@@ -7,8 +7,7 @@ function ChartUser() {
 		fetch("http://localhost:3000/user/lista")
 			.then((rsp) => {
 				rsp.json().then((rsp) => {
-					console.log(rsp.data);
-					setUsuarios(rsp.data);
+					setUsuarios(rsp.users);
 				});
 			})
 			.catch((error) => {
@@ -31,12 +30,7 @@ function ChartUser() {
 								<th>email</th>
 							</tr>
 						</thead>
-						<tfoot>
-							<tr>
-								<th>Nombre y Apellido</th>
-								<th>email</th>
-							</tr>
-						</tfoot>
+
 						<tbody>
 							{Usuarios?.map((row, i) => {
 								return <ChartUserRow {...row} key={i} />;
